@@ -10,6 +10,10 @@ class Artist
     @name = name
     save
   end
+  
+  def save
+    @@all.push(self)
+  end
 
   def add_song(song)
     song.artist = self
@@ -25,10 +29,6 @@ class Artist
 
   def self.find(name)
     self.all.find {|artist| artist.name == name }
-  end
-
-  def save
-    @@all.push(self)
   end
 
   def print_songs
